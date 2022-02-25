@@ -1,0 +1,13 @@
+.book-card {
+    width: 800px ;
+    max-width: 100%;
+  }
+
+  .book-error {
+    color: red;
+    text-align: left;
+    padding-top: 5px;
+    font-size: x-small;
+  }
+  
+  

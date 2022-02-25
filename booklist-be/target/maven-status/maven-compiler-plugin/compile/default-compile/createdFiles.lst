@@ -1,0 +1,14 @@
+com\booklist\Booklist\model\User.class
+com\booklist\Booklist\Configuration\WebSecurityConfiguration.class
+com\booklist\Booklist\service\UserServiceImpl.class
+com\booklist\Booklist\service\CustomerUserDetailsService.class
+com\booklist\Booklist\service\BookRepositoryImpl.class
+com\booklist\Booklist\Repository\BookRepository.class
+com\booklist\Booklist\Repository\UserRepository.class
+com\booklist\Booklist\controller\BookController.class
+com\booklist\Booklist\BooklistApplication.class
+com\booklist\Booklist\controller\HomeController.class
+com\booklist\Booklist\model\Book.class
+com\booklist\Booklist\service\CustomUserDetails.class
+com\booklist\Booklist\service\UserService.class
+com\booklist\Booklist\service\BookService.class

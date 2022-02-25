@@ -1,0 +1,16 @@
+.login-card {
+    width: 500px !important;
+    max-width: 100%;
+  }
+
+.form-group{
+  padding-bottom: 15px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  padding-top: 35px;
+}
+
+  
