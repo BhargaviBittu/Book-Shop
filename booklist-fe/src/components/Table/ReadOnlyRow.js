@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaPencilAlt, FaTrashAlt, FaBook } from "react-icons/fa";
 import { Button } from "react-bootstrap";
 import AuthenticationService from "../service/AuthenticationService";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 var base64 = require("base-64");
 
@@ -17,7 +19,25 @@ const ReadOnlyRow = ({ book, handleEditClick, handleDeleteClick }) => {
     navigate("/AddBook", { state: book });
   };
 
-   var CurrencyFormat = require("react-currency-format");
+  const renderEditTooltip = (props) => (
+    <Tooltip id="button-edit-tooltip" {...props}>
+      Bearbieten
+    </Tooltip>
+  );
+
+  const renderDeleteTooltip = (props) => (
+    <Tooltip id="button-delete-tooltip" {...props}>
+      Löschen
+    </Tooltip>
+  );
+
+  const renderDisplayTooltip = (props) => (
+    <Tooltip id="button-delete-tooltip" {...props}>
+      Anzeige
+    </Tooltip>
+  );
+
+  var CurrencyFormat = require("react-currency-format");
   return (
     <tr>
       <td>{book.title}</td>
@@ -35,29 +55,47 @@ const ReadOnlyRow = ({ book, handleEditClick, handleDeleteClick }) => {
       <td>{book.language}</td>
       <td>
         {role === "ADMIN" ? (
-          <Button
-            className="btn btn-success btn-xs"
-            onClick={(event) => handleEditClick(event, book)}
+          <OverlayTrigger
+            placement="right"
+            delay={{ show: 250, hide: 400 }}
+            overlay={renderEditTooltip}
           >
-            <FaPencilAlt />
-          </Button>
+            <Button
+              className="btn btn-success btn-xs"
+              onClick={(event) => handleEditClick(event, book)}
+            >
+              <FaPencilAlt />
+            </Button>
+          </OverlayTrigger>
         ) : (
-          <Button
-            className="btn btn-success btn-xs"
-            onClick={(event) => handleEditClick(event, book)}
+          <OverlayTrigger
+            placement="right"
+            delay={{ show: 250, hide: 400 }}
+            overlay={renderDisplayTooltip}
           >
-            <FaBook />
-          </Button>
+            <Button
+              className="btn btn-success btn-xs"
+              onClick={(event) => handleEditClick(event, book)}
+            >
+              <FaBook />
+            </Button>
+          </OverlayTrigger>
         )}
       </td>
       <td>
         {role === "ADMIN" ? (
-          <Button
-            className="btn btn-danger btn-xs"
-            onClick={() => handleDeleteClick(book.id)}
+          <OverlayTrigger
+            placement="right"
+            delay={{ show: 250, hide: 400 }}
+            overlay={renderDeleteTooltip}
           >
-            <FaTrashAlt />
-          </Button>
+            <Button
+              className="btn btn-danger btn-xs"
+              onClick={() => handleDeleteClick(book.id)}
+            >
+              <FaTrashAlt />
+            </Button>
+          </OverlayTrigger>
         ) : (
           <td></td>
         )}
